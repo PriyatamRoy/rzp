@@ -37,7 +37,7 @@ app.listen(3001, () => {
 });
 
 function getCaptureUrl(paymentId) {
-    let url = 'https://KEY_ID:KEY_SECRET@api.razorpay.com/v1/payments/PAYMENT_ID/capture;
+    let url = 'https://KEY_ID:KEY_SECRET@api.razorpay.com/v1/payments/PAYMENT_ID/capture';
     url = url.replace('KEY_ID', process.env.RAZORPAY_KEY_ID);
     url = url.replace('KEY_SECRET', process.env.RAZORPAY_KEY_SECRET);
     url = url.replace('PAYMENT_ID', paymentId);
