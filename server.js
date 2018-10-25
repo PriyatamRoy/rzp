@@ -9,9 +9,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.post('/payment-authorized', (req, res) => {
-    console.log('PAYMENT AUTHORIZED');
-    console.log(JSON.stringify(req.body));
-	
 	
 	const url = getCaptureUrl(req.body.payload.payment.entity.id);
 
@@ -29,7 +26,7 @@ app.post('/payment-authorized', (req, res) => {
         });
     })
 	
-	res.end();
+	
 });
 
 app.listen(3001, () => {
