@@ -11,6 +11,7 @@ app.use(bodyParser.json())
 app.post('/payment-authorized', (req, res) => {
 	
 	const url = getCaptureUrl(req.body.payload.payment.entity.id);
+	console.log(url);
 
     axios.post(url, {
         amount: req.body.payload.payment.entity.amount
@@ -21,6 +22,7 @@ app.post('/payment-authorized', (req, res) => {
         }); 
     })
     .catch((e) => {
+		console.log(e);
         return res.status(e.response.status).send({
             message: e.message || "Some error occurred while capturing payment."
         });
@@ -29,7 +31,7 @@ app.post('/payment-authorized', (req, res) => {
 	
 });
 
-app.listen(3001, () => {
+app.listen(3000, () => {
     console.log("Server is listening on port 3000");
 });
 
